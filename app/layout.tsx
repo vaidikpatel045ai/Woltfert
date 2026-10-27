@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import Preloader from "@/components/animation/Preloader";
 import { PageTransitionProvider } from "@/components/animation/PageTransition";
 import SmoothScroll from "@/components/animation/SmoothScroll";
@@ -25,6 +26,27 @@ const manrope = Manrope({
   weight: ["400", "500", "600"],
   variable: "--font-manrope",
   display: "swap",
+});
+
+/**
+ * IBM Plex Serif for numerals only. The unicode-range limits these faces to
+ * digits (and $ % +), so it sits first in every font stack and every number
+ * on the site renders in Plex while letters fall through to Cormorant/Manrope.
+ */
+const plexDigits = localFont({
+  src: [
+    { path: "./fonts/ibm-plex-serif-latin-300-normal.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/ibm-plex-serif-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/ibm-plex-serif-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/ibm-plex-serif-latin-300-italic.woff2", weight: "300", style: "italic" },
+    { path: "./fonts/ibm-plex-serif-latin-400-italic.woff2", weight: "400", style: "italic" },
+  ],
+  variable: "--font-plex-digits",
+  display: "swap",
+  declarations: [{ prop: "unicode-range", value: "U+0030-0039, U+0024, U+0025, U+002B" }],
+  // A metric fallback face would have no unicode-range and swallow all text.
+  adjustFontFallback: false,
+  fallback: [],
 });
 
 export const metadata: Metadata = {
@@ -57,7 +79,7 @@ const boot = `(function(){try{var d=document.documentElement,r=matchMedia('(pref
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${manrope.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${cormorant.variable} ${manrope.variable} ${plexDigits.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: boot }} />
         <style>{`.preloaded .preloader{display:none}html.is-loading{overflow:hidden}`}</style>

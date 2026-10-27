@@ -12,8 +12,9 @@
   --color-gold-deep: #9c7c45; /* large text on ivory — 3.5:1 */
   --color-gold-ink: #7a5c2b; /* small text on ivory — 5.6:1 */
 
-  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
-  --font-sans: var(--font-manrope), "Manrope", system-ui, sans-serif;
+  /* Plex Digits comes first but only covers numerals (unicode-range) */
+  --font-display: var(--font-plex-digits), var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-plex-digits), var(--font-manrope), "Manrope", system-ui, sans-serif;
 
   --text-display: clamp(3.5rem, 11vw, 10rem);
   --text-display--line-height: 0.88;
