@@ -101,6 +101,15 @@ The newsletter route (`app/api/newsletter/route.ts`) has a similar TODO for your
 3. Set `NEXT_PUBLIC_SITE_URL=https://www.wolsfelts.com`, plus the email variables above.
 4. Deploy, then add the domain under Project → Domains.
 
+### Deploying to Netlify instead
+
+The repo includes a `netlify.toml`, so Netlify needs no manual build settings.
+
+1. In Netlify, choose **Add new site → Import an existing project** and pick the GitHub repo.
+2. Netlify reads the build command (`npm run build`), the publish directory (`.next`) and Node 20 from `netlify.toml`. It installs the official Next.js runtime (`@netlify/plugin-nextjs`) automatically.
+3. Under Site configuration → Environment variables, add `NEXT_PUBLIC_SITE_URL` (your Netlify URL or custom domain) and the email variables from section 4.
+4. Deploy. The API routes (`/api/appointment`, `/api/newsletter`) run as Netlify Functions.
+
 ## 6. Motion, WebGL and performance
 
 - **WebGL loads only where it helps.** The silk hero mounts once the browser is idle. The hover-ripple canvas is created on the first hover. The carousel mounts when it scrolls near the viewport. Each canvas stops rendering when it is off screen, and DPR is capped at 1.75.
