@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Fraunces, Manrope } from "next/font/google";
 import localFont from "next/font/local";
 import Preloader from "@/components/animation/Preloader";
 import { PageTransitionProvider } from "@/components/animation/PageTransition";
@@ -13,11 +13,11 @@ import { business, seo } from "@/lib/data";
 import { localBusinessSchema } from "@/lib/schema";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const fraunces = Fraunces({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -31,7 +31,7 @@ const manrope = Manrope({
 /**
  * IBM Plex Serif for numerals only. The unicode-range limits these faces to
  * digits (and $ % +), so it sits first in every font stack and every number
- * on the site renders in Plex while letters fall through to Cormorant/Manrope.
+ * on the site renders in Plex while letters fall through to Fraunces/Manrope.
  */
 const plexDigits = localFont({
   src: [
@@ -79,7 +79,7 @@ const boot = `(function(){try{var d=document.documentElement,r=matchMedia('(pref
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${manrope.variable} ${plexDigits.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${fraunces.variable} ${manrope.variable} ${plexDigits.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: boot }} />
         <style>{`.preloaded .preloader{display:none}html.is-loading{overflow:hidden}`}</style>
