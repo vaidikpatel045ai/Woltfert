@@ -42,11 +42,11 @@ export default function Generations() {
             ))}
           </div>
 
-          <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-gold/40 pt-10 sm:grid-cols-4">
+          <dl className="mt-14 grid grid-cols-2 gap-x-10 gap-y-12 border-t border-gold/40 pt-10 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
             {generations.stats.map((s) => (
               <div key={s.label} className="flex flex-col">
-                <dt className="label order-2 mt-2 text-[0.625rem] text-taupe">{s.label}</dt>
-                <dd className="order-1 font-display text-5xl font-light leading-none md:text-6xl">
+                <dt className="label order-2 mt-3 text-[0.625rem] text-taupe">{s.label}</dt>
+                <dd className="order-1 font-display text-4xl font-light leading-none lg:text-5xl">
                   <Counter value={s.value} from={"from" in s ? s.from : 0} suffix={s.suffix} plain={"plain" in s} />
                 </dd>
               </div>

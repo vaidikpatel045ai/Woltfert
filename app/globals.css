@@ -16,8 +16,8 @@
   --font-display: var(--font-plex-digits), var(--font-fraunces), "Fraunces", Georgia, serif;
   --font-sans: var(--font-plex-digits), var(--font-manrope), "Manrope", system-ui, sans-serif;
 
-  --text-display: clamp(3.5rem, 11vw, 10rem);
-  --text-display--line-height: 0.88;
+  --text-display: clamp(3rem, 9vw, 8.25rem);
+  --text-display--line-height: 0.92;
   --text-h2: clamp(2.75rem, 7vw, 6.5rem);
   --text-h2--line-height: 0.95;
   --text-h3: clamp(1.75rem, 3.2vw, 2.75rem);
@@ -123,10 +123,12 @@
   }
 }
 
-/* Masked line wrappers created by SplitText */
-.split-line {
-  padding-bottom: 0.08em;
-  margin-bottom: -0.08em;
+/* Masked line wrappers created by SplitText. The mask clips at its padding
+   edge, so pad the mask itself to leave room for descenders (y, g, p) at the
+   tight display line-height; the negative margin keeps line spacing intact. */
+.split-line-mask {
+  padding-bottom: 0.22em;
+  margin-bottom: -0.22em;
 }
 
 /* Hide split headings until GSAP has split them (motion users only).

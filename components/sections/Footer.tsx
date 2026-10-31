@@ -1,5 +1,6 @@
 import { TransitionLink } from "@/components/animation/PageTransition";
 import { IconFacebook, IconInstagram, IconYoutube } from "@/components/ui/Icons";
+import Logo from "@/components/ui/Logo";
 import Newsletter from "@/components/ui/Newsletter";
 import { business, categories, designers, fullAddress } from "@/lib/data";
 
@@ -35,10 +36,8 @@ export default function Footer() {
       <div className="container-luxe">
         <div className="grid grid-cols-12 gap-y-14 md:gap-x-10">
           <div className="col-span-12 lg:col-span-4">
-            <p className="font-display text-5xl font-light leading-none md:text-6xl">
-              Wolsfelt<em className="text-gold">&rsquo;</em>s
-            </p>
-            <p className="label mt-3 text-ivory/60">Bridal &amp; Tuxedos · Since 1973</p>
+            <Logo className="h-16 md:h-20" />
+            <p className="label mt-4 text-ivory/60">Bridal &amp; Tuxedos · Since 1973</p>
             <div className="mt-10 max-w-sm">
               <h2 className="label mb-4 text-gold">Trunk shows &amp; private events</h2>
               <Newsletter />
@@ -89,7 +88,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="mt-20 select-none overflow-hidden whitespace-nowrap text-center font-display text-[clamp(2.75rem,10vw,11rem)] font-light leading-[0.8] text-ivory/[0.06]" aria-hidden="true">
+        <p className="mt-20 select-none overflow-x-clip whitespace-nowrap pb-[0.15em] text-center font-display text-[clamp(2.25rem,7.5vw,8rem)] font-light leading-[1.1] text-ivory/[0.06]" aria-hidden="true">
           Say <em>yes</em> since 1973
         </p>
 
